@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  admin: false
   username: MyString
   phone_number: 1
   email_address: MyString
@@ -9,8 +10,10 @@ one:
   city: MyString
   country: MyString
   address: MyString
+  postal_code: MyString
 
 two:
+  admin: false
   username: MyString
   phone_number: 1
   email_address: MyString
@@ -19,3 +22,4 @@ two:
   city: MyString
   country: MyString
   address: MyString
+  postal_code: MyString

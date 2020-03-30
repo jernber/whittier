@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  order_id: 
-  clothing_id: 
+  clothing: 
+  order: 
   price: 
   effects: MyString
   size: MyString
 
 two:
-  order_id: 
-  clothing_id: 
+  clothing: 
+  order: 
   price: 
   effects: MyString
   size: MyString

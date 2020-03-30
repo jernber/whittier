@@ -1,7 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  clothing_id: 1
   clothing_type: MyString
   size: MyString
   effects: MyString
@@ -9,7 +8,6 @@ one:
   price: 
 
 two:
-  clothing_id: 1
   clothing_type: MyString
   size: MyString
   effects: MyString
