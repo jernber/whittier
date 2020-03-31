@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.datetime :date
       t.references :user, null: false, foreign_key: true
       t.boolean :paid
-      t.double :total_price
+      t.float :total_price
 
       t.timestamps
     end

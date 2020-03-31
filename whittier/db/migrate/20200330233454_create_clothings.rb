@@ -5,7 +5,7 @@ class CreateClothings < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :effects
       t.string :sale_type
-      t.double :price
+      t.float :price
 
       t.timestamps
     end
