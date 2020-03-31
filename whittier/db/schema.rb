@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_150630) do
+ActiveRecord::Schema.define(version: 2020_03_31_161601) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,4 +38,54 @@ ActiveRecord::Schema.define(version: 2020_03_30_150630) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "clothing_orders", force: :cascade do |t|
+    t.integer "clothing_id", null: false
+    t.integer "order_id", null: false
+    t.float "price"
+    t.string "effect"
+    t.string "size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["clothing_id"], name: "index_clothing_orders_on_clothing_id"
+    t.index ["order_id"], name: "index_clothing_orders_on_order_id"
+  end
+
+  create_table "clothings", force: :cascade do |t|
+    t.string "clothing_type"
+    t.string "size"
+    t.string "effects"
+    t.string "sale_type"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "user_id", null: false
+    t.boolean "paid"
+    t.float "total_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.boolean "admin"
+    t.string "username"
+    t.integer "phone_number"
+    t.string "email_address"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city"
+    t.string "country"
+    t.string "address"
+    t.string "postal_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "clothing_orders", "clothings"
+  add_foreign_key "clothing_orders", "orders"
+  add_foreign_key "orders", "users"
 end
