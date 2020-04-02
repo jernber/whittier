@@ -17,8 +17,13 @@ clothing_table.each do |row|
   price = row[1][1]
   pic = row[2][1]
   type = row[3][1]
+  download_image = open(URI.escape(pic))
+  Clothing.create(
+    name: name,
+    price: price,
+    clothing_type: type
+  )
 
-  Clothing.create
   # price = row[:PRICE]
   # pic = row[:PICTURE_SRC]
   # type = row[:TYPE]
