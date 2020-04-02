@@ -6,7 +6,15 @@ ActiveAdmin.register Clothing do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :clothing_type, :size, :effects, :sale_type, :price, :type
+  permit_params :clothing_type, :size, :effects, :sale_type, :price, :type, :image
+
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :image, as: :file
+    end
+    f.actions
+  end
   #
   # or
   #
