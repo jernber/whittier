@@ -9,6 +9,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 # clothing_data = CSV.read('../../data.csv')
+# CSV.read('data.csv', headers: true)
+clothing_table = CSV.parse(File.read('clothing_cleaned.csv'), headers: true)
 
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
