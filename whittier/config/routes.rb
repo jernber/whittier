@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'contacts/index'
+  get 'home/index'
+  get 'home/edit'
   get 'clothings/index'
   get 'clothings/show'
   get 'clothings/edit'
