@@ -1,0 +1,19 @@
+<% @clothes.each do |clothing| %>
+  <div class="column">
+    <div class="card">
+      <p class="title is-4"><%= clothing.brand %></p>
+      <% if clothing.image.present? %>
+        <div class="card-image">
+          <figure class="image">
+            <%= image_tag clothing.image %>
+          </figure>
+        </div>
+      <% end %>
+      <div class="media-content">
+        <strong><%= clothing.name%></strong>
+        <br>
+        <strong>$<%= clothing.price %></strong>
+      </div>
+    </div>
+  </div>
+<% end %>
