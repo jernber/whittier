@@ -33,7 +33,7 @@ CSV.foreach(Rails.root.join('lib/clothing_cleaned.csv'), headers: true) do |row|
   clothes = Clothing.create(
     name: name,
     price: price,
-    type: type,
+    clothing_type: type,
     sale_type: sale_type,
     brand: brand
   )
