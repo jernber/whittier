@@ -40,6 +40,7 @@ CSV.foreach(Rails.root.join('lib/clothing_cleaned.csv'), headers: true) do |row|
   name = name.parameterize.underscore
   clothes.image.attach(io: download_image, filename: "image-#{name}.jpg")
 end
+puts "Created #{Clothing.count} Clothes"
 
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
