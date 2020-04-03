@@ -7,9 +7,31 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
+  <section class="section">
+    <div class="container">
+      <header>
+        <nav class="navbar">
+            <div class="navbar-menu">
+              <h1 class="title is-1">whittier.</h1>
 
-  <body>
-    <%= yield %>
-  </body>
+              <div class="navbar-item is-hoverable">
+                <%= link_to "Teams", root_path %>
+              </div>
+
+              <div class="navbar-item is-hoverable">
+                <%= link_to "About", about_index_path  %>
+              </div>
+              <div class="navbar-end">
+              </div>
+            </div>
+          </nav>
+      </header>
+      <body>
+        <%= yield %>
+      </body>
+    </div>
+  </section>
 </html>
