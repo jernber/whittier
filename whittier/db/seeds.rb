@@ -16,18 +16,24 @@ clothing_table.each do |row|
   name = row[0][1]
   price = row[1][1]
   pic = row[2][1]
-  type = row[3][1]
+  brand = row[3][1]
+  type = row[4][1]
+  random_number = rand(1..100)
+  sale_type = if random_number.even?
+                'Regular'
+              else
+                'On Sale'
+              end
   download_image = open(URI.escape(pic))
   Clothing.create(
     name: name,
     price: price,
-    clothing_type: type
+    type: type,
+    sale_type: sale_type,
+    brand: brand
   )
-
-  # price = row[:PRICE]
-  # pic = row[:PICTURE_SRC]
-  # type = row[:TYPE]
-  # puts "name: #{name} price: #{price} pic: #{pic} type: #{type}"
+  name = name.parameterize.underscore
+  clothing.image.attach(io: download_image, filename: "image-#{name}.jpg")
 end
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
