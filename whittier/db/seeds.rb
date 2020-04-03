@@ -8,9 +8,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-clothing_table = CSV.parse(File.read('clothing_cleaned.csv'), headers: true)
-
-clothing_table.each do |row|
+CSV.foreach(Rails.root.join('lib/clothing_cleaned.csv'), headers: true) do |row|
   row = row.to_a
 
   name = row[0][1]
@@ -18,14 +16,21 @@ clothing_table.each do |row|
   pic = row[2][1]
   brand = row[3][1]
   type = row[4][1]
+
+  type.class
+  price = price[1..price.size]
+  pic = pic[2..pic.size]
+
   random_number = rand(1..100)
   sale_type = if random_number.even?
                 'Regular'
               else
                 'On Sale'
               end
-  download_image = open(URI.escape(pic))
-  Clothing.create(
+
+  download_image = 'https://' + pic
+  download_image = open(URI.escape(download_image))
+  clothes = Clothing.create(
     name: name,
     price: price,
     type: type,
@@ -33,8 +38,9 @@ clothing_table.each do |row|
     brand: brand
   )
   name = name.parameterize.underscore
-  clothing.image.attach(io: download_image, filename: "image-#{name}.jpg")
+  clothes.image.attach(io: download_image, filename: "image-#{name}.jpg")
 end
+
 if Rails.env.development?
   AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end

@@ -13,9 +13,10 @@ clothing_table.each do |row|
   pic = row[2][1]
   brand = row[3][1]
   type = row[4][1]
-
+  pic = pic[2..pic.size]
+  price = price[1..price.size]
   puts name
-  puts price = price[1..price.size]
+  puts
   puts pic
   puts type.upcase!
 end
