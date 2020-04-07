@@ -1,19 +1,23 @@
-<% clothing.each do |clothing| %>
-  <div class="column">
-    <div class="card">
-      <p class="title is-4"><%= clothing.brand %></p>
-      <% if clothing.image.present? %>
-        <div class="card-image">
-          <figure class="image">
-            <%= image_tag clothing.image %>
-          </figure>
+<div class="tile is-ancestor">
+  <% @clothes.in_groups_of(4) do |clothing| %>
+    <% clothing.each do |details| %>
+      <div class="column">
+        <div class="card">
+          <p class="title is-4"><%= details.brand %></p>
+          <% if details.image.present? %>
+            <div class="card-image">
+              <figure class="image">
+                <%= image_tag details.image %>
+              </figure>
+            </div>
+          <% end %>
+          <div class="media-content">
+            <strong><%= details.name%></strong>
+            <br>
+            <strong>$<%= details.price %></strong>
+          </div>
         </div>
-      <% end %>
-      <div class="media-content">
-        <p><%= clothing.name%></p>
-        <br>
-        <p><%= clothing.price %></p>
       </div>
-    </div>
-  </div>
-<% end %>
+    <% end %>
+  <% end %>
+</div>

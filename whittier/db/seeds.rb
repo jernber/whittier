@@ -17,10 +17,7 @@ CSV.foreach(Rails.root.join('lib/clothing_cleaned.csv'), headers: true) do |row|
   brand = row[3][1]
   type = row[4][1]
 
-  type.class
   price = price[1..price.size]
-  pic = pic[2..pic.size]
-
   random_number = rand(1..100)
   sale_type = if random_number.even?
                 'Regular'
@@ -28,7 +25,7 @@ CSV.foreach(Rails.root.join('lib/clothing_cleaned.csv'), headers: true) do |row|
                 'On Sale'
               end
 
-  download_image = 'https://' + pic
+  download_image = 'https:' + pic
   download_image = open(URI.escape(download_image))
   clothes = Clothing.create(
     name: name,

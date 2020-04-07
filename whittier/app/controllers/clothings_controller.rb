@@ -6,7 +6,7 @@ class ClothingsController < ApplicationController
   end
 
   def tops
-    @clothes = Clothing.where(clothing_type: :top).page(params[:page]).per(30)
+    @clothes = Clothing.where(clothing_type: :top).page(params[:page]).per(9)
   end
 
   def bottoms

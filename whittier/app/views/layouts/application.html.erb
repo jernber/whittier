@@ -9,6 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="whittier/app/assets/stylesheets/clothings.scss">
   </head>
   <section class="section">
     <div class="container">
@@ -16,15 +17,26 @@
         <nav class="navbar">
             <div class="navbar-menu">
               <h1 class="title is-1">whittier.</h1>
-
-              <div class="navbar-item is-hoverable">
-                <%= link_to "Teams", root_path %>
-              </div>
-
-              <div class="navbar-item is-hoverable">
-                <%= link_to "About", about_index_path  %>
-              </div>
               <div class="navbar-end">
+                <div class="navbar-item is-hoverable">
+                  <%= link_to "tops", clothings_tops_path %>
+                </div>
+
+                <div class="navbar-item is-hoverable">
+                  <%= link_to "bottoms", clothings_bottoms_path  %>
+                </div>
+
+                <div class="navbar-item is-hoverable">
+                  <%= link_to "jackets", clothings_jackets_path  %>
+                </div>
+
+                <div class="navbar-item is-hoverable">
+                  <%= link_to "footwear", clothings_footwear_path  %>
+                </div>
+
+                <div class="navbar-item is-hoverable">
+                  <%= link_to "accessory", clothings_accessory_path  %>
+                </div>
               </div>
             </div>
           </nav>

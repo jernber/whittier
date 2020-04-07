@@ -5,13 +5,11 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/edit'
   get 'clothings/index'
-  # get 'clothings/show'
-  # get 'clothings/edit'
   get 'clothings/tops'
   get 'clothings/bottoms'
   get 'clothings/jackets'
   get 'clothings/footwear'
-  get 'clothings/acessory'
+  get 'clothings/accessory'
 
   get 'about/index'
 
