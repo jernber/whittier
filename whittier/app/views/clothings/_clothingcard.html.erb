@@ -1,23 +1,22 @@
-<div class="tile is-ancestor">
-  <% @clothes.in_groups_of(4) do |clothing| %>
-    <% clothing.each do |details| %>
-      <div class="column">
-        <div class="card">
-          <p class="title is-4"><%= details.brand %></p>
-          <% if details.image.present? %>
-            <div class="card-image">
-              <figure class="image">
-                <%= image_tag details.image %>
-              </figure>
-            </div>
-          <% end %>
-          <div class="media-content">
-            <strong><%= details.name%></strong>
-            <br>
-            <strong>$<%= details.price %></strong>
+<div class="columns is-multiline">
+  <% @clothes.each do |clothing| %>
+    <div class="column is-one-quarter">
+      <div class="card">
+          <div class="card-image">
+            <figure class="image">
+              <%= image_tag clothing.image %>
+            </figure>
           </div>
+        <div class="media-content">
+          <strong><%= clothing.brand%></strong>
+          <br>
+          <br>
+          <strong><%= clothing.name%></strong>
+          <br>
+          <br>
+          <strong>$<%= clothing.price %></strong>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>
