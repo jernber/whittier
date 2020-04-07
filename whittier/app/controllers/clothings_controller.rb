@@ -25,7 +25,9 @@ class ClothingsController < ApplicationController
     @clothes = Clothing.where(clothing_type: :jacket).page(params[:page]).per(30)
   end
 
-  def show; end
+  def show
+    @clothess = Clothing.find(params[:id])
+  end
 
   def edit; end
 end

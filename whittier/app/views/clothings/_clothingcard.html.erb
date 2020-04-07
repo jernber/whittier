@@ -1,6 +1,6 @@
 <div class="columns is-multiline">
   <% @clothes.each do |clothing| %>
-    <div class="column is-one-quarter">
+    <div class="column is-one-quarter clothingbox">
       <div class="card">
           <div class="card-image">
             <figure class="image">
@@ -11,7 +11,7 @@
           <strong><%= clothing.brand%></strong>
           <br>
           <br>
-          <strong><%= clothing.name%></strong>
+          <strong><%= link_to clothing.name, %></strong>
           <br>
           <br>
           <strong>$<%= clothing.price %></strong>
