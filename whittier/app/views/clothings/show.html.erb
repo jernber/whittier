@@ -1,10 +1,19 @@
-<div class="tile is-ancestor">
-  <div class="tile is-parent">
-
-  </div>
-  <div class="tile is-parent">
-    <h1><%= @clothes.name %></h1>
-    <h1><%= @clothes.price %></h1>
+<div class="level">
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image displaybox">
+            <%= image_tag @clothes.image %>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <h1 class="title is-3"><%= @clothes.name %></h1>
+      <h2 class="subtitle is-5"><%= @clothes.brand %></h2>
+      <strong><%= @clothes.price %></strong>
+    </div>
   </div>
 
 </div>
