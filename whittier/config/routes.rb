@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'clothings/jackets'
   get 'clothings/footwear'
   get 'clothings/accessory'
-  get 'clothings/show'
+  get 'clothings/show/:id', to: 'clothings#show', as: 'clothing'
   get 'about/index'
   root to: 'home#index'
   devise_for :admin_users, ActiveAdmin::Devise.config

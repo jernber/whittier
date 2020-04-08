@@ -11,10 +11,11 @@
           <strong><%= clothing.brand%></strong>
           <br>
           <br>
-          <strong><%= link_to clothing.name, %></strong>
+          <strong><%= link_to clothing.name, clothing_path(clothing.id) %></strong>
           <br>
           <br>
-          <strong>$<%= clothing.price %></strong>
+          <strong>$<%= clothing.price %>0</strong>
+          <strong><%= clothing.id %></strong>
         </div>
       </div>
     </div>
