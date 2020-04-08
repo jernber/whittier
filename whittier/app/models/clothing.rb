@@ -6,4 +6,12 @@ class Clothing < ApplicationRecord
   validates :name, :price, presence: true
 
   has_one_attached :image
+
+  def self.search(search)
+    if search
+      where(['name LIKE ?', "%#{params[:search]}%"]) if search
+    else
+      all
+    end
+  end
 end

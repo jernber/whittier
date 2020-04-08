@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ClothingsController < ApplicationController
+
+
   def index
     @clothes = Clothing.page(params[:page]).per(50)
   end

@@ -1,0 +1,14 @@
+<h1 class="title">Search Results</h1>
+
+<% if @search.search_books.empty? %>
+  <p>No Records Found</p>
+<% else %>
+  <% @search.search_books.each do |c| %>
+    <br>
+    <div class="">
+      <h1><%= c.name %></h1>
+      <p>Price: $<%= c.price %></p>
+      <p>Category: <%= c.clothing_type %></p>
+    </div>
+  <% end %>
+<% end %>
