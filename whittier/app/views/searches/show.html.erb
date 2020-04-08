@@ -6,7 +6,7 @@
   <% @search.search_books.each do |c| %>
     <br>
     <div class="">
-      <h1><%= c.name %></h1>
+      <h1><%= link_to c.name, clothing_path(c.id) %></h1>
       <p>Price: $<%= c.price %></p>
       <p>Category: <%= c.clothing_type %></p>
     </div>
