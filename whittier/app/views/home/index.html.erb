@@ -1,6 +1,7 @@
 <h1 class="title is-1">
   This is Whittier
 </h1>
+<%= link_to "#{current_order.clothing_orders.size} items with a value of $#{current_order.subtotal}", carts_path%>
 <div class="columns">
   <%= render partial: 'clothingcard',
     object: @clothes
