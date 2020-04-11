@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
 class ClothingsController < ApplicationController
-
-
   def index
     @clothes = Clothing.page(params[:page]).per(50)
   end
 
   def tops
-    @clothes = Clothing.where(clothing_type: :top).page(params[:page]).per(9)
+    @clothes = Clothing.where(clothing_type: :top).page(params[:page]).per(30)
   end
 
   def bottoms
@@ -29,6 +27,7 @@ class ClothingsController < ApplicationController
 
   def show
     @clothes = Clothing.find(params[:id])
+    @order_item = current_order.clothing_orders.new
   end
 
   def edit; end
