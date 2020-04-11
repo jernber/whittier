@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'carts/show'
   get 'searches/index'
   get 'contacts/index'
   get 'home/index'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :searches
   resources :clothing_orders
+  resource :carts, only:[:show]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
