@@ -3,6 +3,8 @@
 class Order < ApplicationRecord
   belongs_to :user
   has_many :clothing_orders
+  has_many :clothing, through: :clothing_orders
+
   before_save :set_subtotal
 
   def subtotal

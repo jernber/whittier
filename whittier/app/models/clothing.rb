@@ -2,6 +2,7 @@
 
 class Clothing < ApplicationRecord
   has_many :clothing_orders
+  has_many :orders, through: :clothing_orders
 
   validates :name, :price, presence: true
 
