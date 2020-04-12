@@ -4,7 +4,6 @@ class ClothingOrdersController < ApplicationController
   def create
     @order = current_order
     @order.clothing_orders.new(order_params)
-    binding.pry
     @order.save!
     session[:order_id] = @order.id
   end
