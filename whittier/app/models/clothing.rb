@@ -4,7 +4,8 @@ class Clothing < ApplicationRecord
   has_many :clothing_orders
   has_many :orders, through: :clothing_orders
 
-  validates :name, :price, presence: true
+  validates :name, :price, :clothing_type, presence: true
+  validates :price, numericality: true
 
   has_one_attached :image
 
