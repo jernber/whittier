@@ -1,6 +1,8 @@
 <h1 class="title is-1">
   This is Whittier
 </h1>
+
+<%= debug session[:cart]%>
 <% if current_user %>
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 <% else %>
@@ -10,7 +12,6 @@
 
 
 <br />
-<%= link_to "#{current_order.clothing_orders.size} items with a value of $#{current_order.subtotal}", carts_path%>
 <div class="columns">
   <%= render partial: 'clothingcard',
     object: @clothes

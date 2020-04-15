@@ -1,8 +1,15 @@
 # frozen_string_literal: true
 
 class ClothingsController < ApplicationController
+  before_action :load_cart
   def index
     @clothes = Clothing.page(params[:page]).per(50)
+  end
+
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to root_path
   end
 
   def tops
@@ -27,8 +34,15 @@ class ClothingsController < ApplicationController
 
   def show
     @clothes = Clothing.find(params[:id])
-    @order_item = current_order.clothing_orders.new
   end
 
   def edit; end
+
+  def initialize_session
+    session[:cart] ||= []
+  end
+
+  def load_cart
+    @cart = Clothing.find(session[:cart])
+  end
 end

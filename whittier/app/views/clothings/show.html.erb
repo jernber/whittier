@@ -10,16 +10,15 @@
       </div>
     </div>
     <div class="tile is-parent">
-        <%= form_for @order_item do |f| %>
-          <%= f.hidden_field :clothing_id, :value => @clothes.id %>
-          <%= f.number_field :quantity, :value => 1, :min => 1 %>
-          <%= f.hidden_field :unit_price, :value => @clothes.price %>
-          <%= f.submit "Add to Cart" %>
+      <% if @cart.include?(@clothes) %>
+        <p>Product is in your cart. </p>
+      <% else%>
+        <p><%= link_to 'add to cart', add_to_cart_path(@clothes.id), method: :post %></p>
+      <% end %>
 
-        <% end %>
       <h1 class="title is-3"><%= @clothes.name %></h1>
       <h2 class="subtitle is-5"><%= @clothes.brand %></h2>
-      <strong><%= @clothes.price %></strong>
+      <strong>Price: <%= number_to_currency @clothes.price/1.0 %></strong>
     </div>
   </div>
 

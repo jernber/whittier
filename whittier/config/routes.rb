@@ -3,7 +3,10 @@
 Rails.application.routes.draw do
   devise_for :users
   # devise_for :users, controllers: { registrations: 'registrations' }
-  get 'carts/show'
+  # get 'carts/show'
+  post 'clothings/add_to_cart/:id', to: 'clothings#add_to_cart', as: 'add_to_cart'
+  delete 'clothings/remove_from_cart/:id', to: 'clothings#remove_from_cart', as: 'remove_from_cart'
+
   get 'searches/index'
   get 'contacts/index'
   get 'home/index'
