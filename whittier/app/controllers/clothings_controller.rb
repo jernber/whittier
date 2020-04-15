@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
 class ClothingsController < ApplicationController
+  before_action :initialize_session
   before_action :load_cart
+
   def index
-    @clothes = Clothing.page(params[:page]).per(50)
+    random_number = rand(1..Clothing.count)
+    @clothes = Clothing.where(id: random_number)
+  end
+
+  def load_cart
+    @cart = Clothing.find(session[:cart])
   end
 
   def add_to_cart
@@ -38,11 +45,10 @@ class ClothingsController < ApplicationController
 
   def edit; end
 
-  def initialize_session
-    session[:cart] ||= []
-  end
+  protected
 
-  def load_cart
-    @cart = Clothing.find(session[:cart])
+  def initialize_session
+    session[:visit_count] ||= 0
+    session[:cart] ||= []
   end
 end

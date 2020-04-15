@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'clothings/accessory'
   get 'clothings/show/:id', to: 'clothings#show', as: 'clothing'
   get 'about/index'
-  root to: 'home#index'
+  root to: 'clothings#index'
   resources :searches
   resources :clothing_orders
   resource :carts, only: [:show]

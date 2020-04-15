@@ -2,6 +2,15 @@
   This is Whittier
 </h1>
 
+<details>
+  <summary>Shopping Cart</summary>
+  <ul>
+    <%= @cart.each do |product| %>
+      <li><%= product.name %></li>
+    <% end %>
+  </ul>
+</details>
+
 <%= debug session[:cart]%>
 <% if current_user %>
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>

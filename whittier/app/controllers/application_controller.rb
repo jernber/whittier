@@ -3,11 +3,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :initialize_session
-
-  def initialize_session
-    session[:visit_count] ||= 0
-  end
 
   protected
 
