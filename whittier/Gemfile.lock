@@ -89,6 +89,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    breadcrumbs_on_rails (4.0.0)
+      rails (>= 5.0)
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.32.0)
@@ -283,6 +285,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap (>= 1.4.2)
+  breadcrumbs_on_rails
   byebug
   capybara (>= 2.15)
   devise
