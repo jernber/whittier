@@ -11,9 +11,9 @@
     </div>
     <div class="tile is-parent">
       <% if @cart.include?(@clothes) %>
-        <p>Product is in your cart. </p>
+       <p><%= button_to 'remove from cart', remove_from_cart_path(@clothes.id), method: :delete, class: "button" %></p>
       <% else%>
-        <p><%= link_to 'add to cart', add_to_cart_path(@clothes.id), method: :post %></p>
+        <p><%= button_to 'add to cart', add_to_cart_path(@clothes.id), method: :post, class: "button" %></p>
       <% end %>
 
       <h1 class="title is-3"><%= @clothes.name %></h1>

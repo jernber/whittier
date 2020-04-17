@@ -4,14 +4,17 @@
 
 <details>
   <summary>Shopping Cart</summary>
+  <% if @cart.empty? %>
+    <p>Nothing in cart</p>
+  <% else %>
   <ul>
     <%= @cart.each do |product| %>
-      <li><%= product.name %></li>
+      <li><%= product.name %> | <%= link_to 'Remove', remove_from_cart_path(product.id), method: :delete %></li>
     <% end %>
   </ul>
+  <% end %>
 </details>
 
-<%= debug session[:cart]%>
 <% if current_user %>
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
 <% else %>

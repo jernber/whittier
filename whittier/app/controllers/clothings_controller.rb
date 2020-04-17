@@ -19,6 +19,12 @@ class ClothingsController < ApplicationController
     redirect_to root_path
   end
 
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to root_path
+  end
+
   def tops
     @clothes = Clothing.where(clothing_type: :top).page(params[:page]).per(30)
   end
