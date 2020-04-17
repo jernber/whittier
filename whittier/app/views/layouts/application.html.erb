@@ -11,7 +11,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="whittier/app/assets/stylesheets/clothings.scss">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
   </head>
   <section class="section">
     <div class="container">
@@ -51,8 +50,16 @@
   <section class="section">
     <div class="container">
       <body>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <% if notice %>
+          <div class="notification is-success">
+            <%= notice %>
+          </div>
+        <% end%>
+        <% if alert %>
+          <div class="notification is-danger">
+            <%= alert %>
+          </div>
+        <% end%>
         <%= render_breadcrumbs %>
         <%= yield %>
       </body>

@@ -17,6 +17,7 @@ class ClothingsController < ApplicationController
     id = params[:id].to_i
     session[:cart] << id unless session[:cart].include?(id)
     redirect_to root_path
+    flash[:notice] = 'Successfully added to cart'
   end
 
   def remove_from_cart
