@@ -1,23 +1,29 @@
-<h1>Advanced Search</h1>
+<h1 class='title'>Advanced Search</h1>
 
-<%= form_for @search, html: {class:"pure-form"} do |s| %>
+<div class="box">
+  <%= form_for @search, html: {class:"pure-form"} do |s| %>
 
   <div class="field">
-    <%= s.label :keywords %> <br>
-    <%= s.text_field :keywords %>
+    <%= s.label :keywords, class: "label" %>
+    <div class="control">
+      <%= s.text_field :keywords, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
     <%= s.label :category %> <br>
-    <%= s.select :category, options_for_select(@categories), :include_blank => true %>
+    <div class="control">
+      <%= s.select :category, options_for_select(@categories), :include_blank => true, :class => "select"  %>
+    </div>
   </div>
 
   <div class="field">
-    <p><%= s.label :min_price, "Min Price" %> - <%= s.text_field :min_price, size:10 %></p>
-    <p><%= s.label :max_price, "Max Price" %> - <%= s.text_field :max_price, size:10 %></p>
+    <p><%= s.label :min_price, "Min Price"  %> <%= s.text_field :min_price, size:10, class: "input" %></p>
+    <p><%= s.label :max_price, "Max Price"  %><%= s.text_field :max_price, size:10, class: "input" %></p>
   </div>
 
   <div class="actions">
     <%= s.submit "Search", class: "button is-primary" %>
   </div>
 <% end %>
+</div>
