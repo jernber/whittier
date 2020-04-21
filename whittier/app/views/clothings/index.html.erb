@@ -1,28 +1,16 @@
-<h1 class="title is-1">
-  This is Whittier
-</h1>
-<section>
-  <details>
-    <summary>Shopping Cart</summary>
+<details>
+  <summary>Shopping Cart</summary>
     <% if @cart.empty? %>
       <p>Nothing in cart</p>
     <% else %>
     <ul>
-      <%= @cart.each do |product| %>
+      <% @cart.each do |product| %>
         <li><%= product.name %> | <%= link_to 'Remove', remove_from_cart_path(product.id), method: :delete %></li>
       <% end %>
     </ul>
     <% end %>
-  </details>
-</section>
-
+</details>
 <br />
 <section class="section">
-  <div class="container">
-    <div class="columns">
-      <%= render partial: 'clothingcard',
-        object: @clothes
-      %>
-    </div>
-  </div>
+  <%= image_tag ("store.jpg"), alt: "store image" %>
 </section>

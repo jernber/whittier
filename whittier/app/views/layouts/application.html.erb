@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="whittier/app/assets/stylesheets/clothings.scss">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
-  <section class="section">
     <div class="container">
       <header>
         <nav class="navbar">
@@ -61,7 +60,6 @@
   </div>
   <section class="section">
     <div class="container">
-      <body>
         <% if notice %>
           <div class="notification is-success">
             <%= notice %>
@@ -74,7 +72,6 @@
         <% end%>
         <%= render_breadcrumbs %>
         <%= yield %>
-      </body>
     </div>
   </section>
 </html>
