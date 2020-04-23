@@ -16,6 +16,6 @@ services:
     #   - .:/project # Only mount this volume if running Rails in development mode.
     ports:
       - "3000:3000"
-    depends_on:
+    # depends_on:
       # - db
     # restart: always
